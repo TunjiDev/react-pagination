@@ -12,13 +12,13 @@ class ErrorBoundary extends Component {
 	}
 
 	componentDidCatch(error) {
-		console.log(error);
+		// console.log(error);
 		this.setState({ hasError: true });
 	}
 
 	render() {
 		if (this.state.hasError) {
-			return <h2>Something went very wrong!</h2>;
+			return <h2 style={{ color: "red", "text-align": "center" }}>Something went very wrong!</h2>;
 		}
 		return this.props.children;
 	}

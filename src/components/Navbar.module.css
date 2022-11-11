@@ -1,11 +1,10 @@
 .navbar {
 	background-color: green;
-	height: 50px;
 	display: flex;
 	font-size: 20px;
 	align-items: center;
 	justify-content: space-evenly;
-	height: 5vh;
+	height: 7vh;
 }
 
 .navbar__link__container {
@@ -23,7 +22,7 @@
 	text-decoration: none;
 }
 
-.navbar__link:hover {
+.active {
 	background-color: rgb(230, 230, 230);
 	color: green;
 	cursor: pointer;

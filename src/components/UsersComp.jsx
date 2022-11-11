@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 
 import User from "./User";
-import styles from "./Main.module.css";
+import styles from "./UsersComp.module.css";
 import usePaginate from "../hooks/usePaginate";
+
+export let usersArr = [];
 
 function UsersComp() {
 	const [users, setUsers] = useState([]);
@@ -13,6 +15,7 @@ function UsersComp() {
 	const [pageNumberLimit] = useState(5);
 	const [minPageNumberLimit, setMinPageNumberLimit] = useState(0);
 	const [maxPageNumberLimit, setMaxPageNumberLimit] = useState(5);
+
 	const {
 		renderPageNumbers,
 		currentItems,
@@ -44,6 +47,7 @@ function UsersComp() {
 			const data = await response.json();
 
 			setUsers(data.results);
+
 			setIsLoading(false);
 			// console.log(data);
 		};
@@ -72,12 +76,14 @@ function UsersComp() {
 		);
 	}
 
+	usersArr = users.map((user) => user);
+
 	return (
 		<main className={styles.main}>
 			{currentItems.map((user) => {
 				return (
 					<User
-						key={user.name.first}
+						key={user.login.uuid}
 						name={user.name.first}
 						email={user.email}
 						gender={user.gender}
